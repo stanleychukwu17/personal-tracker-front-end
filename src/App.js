@@ -28,7 +28,7 @@ const saveTheGoalsNow = (obj) => {
         method: 'POST', headers: {'content-Type':'application/json'},
         body: JSON.stringify(obj)
     }).then(re => {
-        console.log('we don save the guy', re)
+
     })
 }
 
