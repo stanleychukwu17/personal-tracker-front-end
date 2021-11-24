@@ -5,9 +5,40 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #ecf0f1;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+* {box-sizing: border-box;}
+div { position: relative; overflow: hidden; }
+.Hm_Hdr1 { padding: 15px 1%; font-size: 25px; }
+
+
+.Hm_boxCvr { background: #fff; margin: 5px 0 55px; padding: 15px 1%; }
+.Hm_EMkdons { font-size: 19px; margin: 0 1%; font-weight: bold; }
+.Hm_Todays { padding: 10px 0; margin: 20px 1% 0; }
+.Hm_Todays select {
+  width: 90px; padding: 10px 10px; margin: 0 15px 0 0; background-color: #f1f2f6; border-color: transparent; font-size: 14px; font-weight: bold; text-transform: capitalize;
 }
+.Hm_EchCPops { display: flex; flex-wrap: wrap; margin: 10px 0 0; }
+.Hm_EchCCvr { min-width: 23%; max-width: 23%; margin: 13px 1% 10px; }
+.Hm_EchCd_1 { font-size: 13.45px; letter-spacing: 1px; }
+.Hm_EchCd_2 { padding: 9px 0 5px; }
+.Hm_EchCd_2 select, .Hm_EchCd_2 input {
+  width: 60%; padding: 10px 10px; background-color: #f1f2f6; border-color: transparent; font-size: 14px; font-weight: bold; text-transform: capitalize;
+}
+.Hm_EchCd_2 select:focus { border-color: turquoise; }
+.gbBb_4time input { width: 35%; margin: 0 15px 0 0; }
+.Hm_LstBtn { padding: 20px 1% 10px; height: 100px; }
+.Hm_LstBtn button {
+  padding: 12px 40px; height: 55px; font-size: 17px; font-weight: bold; border-radius: 2px; position: relative;
+  background: cornsilk; box-shadow: 3px 3px 2px rgba(241, 242, 246, .9), 0 0 7px 1px rgba(241, 242, 246, 1);
+  border: 1px solid transparent;
+  border-top: 1px solid #ececec;
+  cursor: pointer;
+  transition: all ease-out .3s;
+}
+.Hm_LstBtn button:hover {
+  box-shadow: none; margin-top: -0.4px;
+  border: 1px solid #abb8c6;
+}
+.Hm_LstBtn button:active { top: 1px; }
