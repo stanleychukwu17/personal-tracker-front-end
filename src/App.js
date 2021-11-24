@@ -18,10 +18,10 @@ const saveTheGoalsNow = (obj) => {
     let any_empties = false;
     if (theDay <= 0 || theMonth <= 0 || theYear <= 0) { alert('In-accurate date format received'); return false; }
 
-    // goals.forEach(ech => {
-    //     if (ech.typ === 'select_time' && !ech.hour_val) { any_empties = true; return false; }
-    //     else if (ech.typ === 'input_hours' && !ech.hour_val) { any_empties = true; return false; }
-    // })
+    goals.forEach(ech => {
+        if (ech.typ === 'select_time' && !ech.hour_val) { any_empties = true; return false; }
+        else if (ech.typ === 'input_hours' && !ech.hour_val) { any_empties = true; return false; }
+    })
     // if (any_empties) { alert('Please check all of the hours input to confirm that they are as supposed to be'); return false; }
 
     fetch('http://localhost:4000/save-this-archive/', {
