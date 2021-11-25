@@ -22,15 +22,23 @@ const saveTheGoalsNow = (obj) => {
         if (ech.typ === 'select_time' && !ech.hour_val) { any_empties = true; return false; }
         else if (ech.typ === 'input_hours' && !ech.hour_val) { any_empties = true; return false; }
     })
-    // if (any_empties) { alert('Please check all of the hours input to confirm that they are as supposed to be'); return false; }
+    if (any_empties) { alert('Please check all of the hours input to confirm that they are as supposed to be'); return false; }
 
-    fetch('http://localhost:4000/save-this-archive/', {
+    return fetch('http://localhost:4000/save-this-archive/', {
         method: 'POST', headers: {'content-Type':'application/json'},
         body: JSON.stringify(obj)
     }).then(re => {
-
+        loadArchievedGoals()
     })
 }
+
+const loadArchievedGoals = (obj) => {
+    fetch('http://localhost:4000/get-archieved-goals/').then(re => re.json()).then(re => {
+        console.log(re);
+        // if (re.rows.length > 0) { setGoals(re.rows) }
+    })
+}
+
 
 function App() {
     const d = new Date();
@@ -44,6 +52,8 @@ function App() {
         fetch('http://localhost:4000/get-the-goals/').then(re => re.json()).then(re => {
             if (re.rows.length > 0) { setGoals(re.rows) }
         })
+
+        loadArchievedGoals({})
     }, [])
 
     return (
@@ -73,7 +83,7 @@ function App() {
                         if (ech.typ === 'select_yes') {
                             slt_typ = (
                                 <select id={ech.id} onChange={(e) => { setGoals(mufasa(e, goals, 'select_yes')) }} value={ech.val || ech.def}>
-                                    <option value="yes">yes</option><option value="no">no</option>
+                                    <option value="passed">passed</option><option value="failed">failed</option>
                                 </select>
                             )
                         } else if (ech.typ === 'select_time') {
