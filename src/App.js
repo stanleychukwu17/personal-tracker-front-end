@@ -44,26 +44,49 @@ const loadArchievedGoals = (obj) => {
 //--end--
 
 //--start-- helper components
+const PassedComponents = ({typ, typ_val, typ_hours}) => {
+    let passed, failed, dtime, klass = 'Dw1_pass';
+
+    if (typ === 'select_yes') {
+        if (typ_val === 'passed') { passed = true; }
+        else { failed = true; klass += ' Dw1_fail'; }
+    }
+    else if (typ === 'select_time' || typ === 'input_hours') {
+        dtime = true; klass += ' Dw1_time';
+    }
+
+    return (
+        <div className={klass}>
+            <div>
+                {passed && <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" /></svg> }
+                {failed && <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" /></svg>}
+                {dtime && <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z" /> <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z" /></svg>}
+            </div>
+            <div>{typ_val || typ_hours}</div>
+        </div>
+    )
+}
 const ThisMonthGoalsComponent = ({archievedGoals: ag}) => {
     const {msg, every_day} = ag;
 
-    // if (!msg) { return <div>Loading...</div> }
+    if (!msg) { return <div>Loading...</div> }
 
     const ech_card = every_day.map(ech => {
+
+
+
         if (ech.goals.length > 0) {
             return (
-                <div className=" Dw1_mnt_Ecd">
+                <div className=" Dw1_mnt_Ecd" key={ech.date}>
                     <div className="Dw1_mnt_TopM">
-                        <div>Nov 25, 2021</div> <div>Monday</div> <div></div>
+                        <div>{ech.d_shw}</div> <div>{ech.day}</div> <div></div>
                     </div>
                     <div className="Dw1_mnt_Mid">
                         {ech.goals.map( v1 => {
                             return (
-                                <div className="Dw1_mnt_MEch">
-                                    <div className="">{v1.title}</div>
-                                    <div className="">
-                                        {v1.typ_val || v1.typ_hours}
-                                    </div>
+                                <div className="Dw1_mnt_MEch" key={v1.typ_id}>
+                                    <div>{v1.title}</div>
+                                    <PassedComponents typ={v1.typ} typ_val={v1.typ_val} typ_hours={v1.typ_hours} />
                                 </div>
                             )
                         })}
