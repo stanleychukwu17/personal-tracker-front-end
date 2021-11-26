@@ -1,5 +1,6 @@
 import {useState, useEffect} from 'react'
 
+//--start-- helper functions
 const mufasa = (event, gl, wch) => {
     let slt_id = Number(event.target.id), val = event.target.value, obj = [];
 
@@ -35,12 +36,53 @@ const saveTheGoalsNow = (obj) => {
 const loadArchievedGoals = (obj) => {
     const {m, y} = obj
 
-    console.log(m, y, new URLSearchParams({m, y}))
-    fetch('http://localhost:4000/get-archieved-goals/' + new URLSearchParams({m, y})).then(re => re.json()).then(re => {
-        console.log(re);
+    fetch('http://localhost:4000/get-archieved-goals/?' + new URLSearchParams({m, y})).then(re => re.json()).then(re => {
+        obj.callback(re)
         // if (re.rows.length > 0) { setGoals(re.rows) }
     })
 }
+//--end--
+
+//--start-- helper components
+const ThisMonthGoalsComponent = ({archievedGoals: ag}) => {
+    const {msg, every_day} = ag;
+
+    // if (!msg) { return <div>Loading...</div> }
+
+    const ech_card = every_day.map(ech => {
+        if (ech.goals.length > 0) {
+            return (
+                <div className=" Dw1_mnt_Ecd">
+                    <div className="Dw1_mnt_TopM">
+                        <div>Nov 25, 2021</div> <div>Monday</div> <div></div>
+                    </div>
+                    <div className="Dw1_mnt_Mid">
+                        {ech.goals.map( v1 => {
+                            return (
+                                <div className="Dw1_mnt_MEch">
+                                    <div className="">{v1.title}</div>
+                                    <div className="">
+                                        {v1.typ_val || v1.typ_hours}
+                                    </div>
+                                </div>
+                            )
+                        })}
+                    </div>
+                </div>
+            )
+        } else {
+            return ''
+        }
+    })
+
+    console.log(every_day);
+    return (
+        <div className="Dw1_mnt_Cards">
+            {ech_card}
+        </div>
+    )
+}
+//--end--
 
 
 function App() {
@@ -49,6 +91,7 @@ function App() {
     const [theDay, setTheDay] = useState(d.getDate())
     const [theMonth, setTheMonth] = useState(d.getMonth() + 1)
     const [theYear, setTheYear] = useState(d.getFullYear())
+    const [archievedGoals, setArchievedGoals] = useState({'msg':false})
     let slt_typ, onome = [];
 
     useEffect(() => {
@@ -56,7 +99,7 @@ function App() {
             if (re.rows.length > 0) { setGoals(re.rows) }
         })
 
-        loadArchievedGoals({'m':theMonth, 'y':theYear})
+        loadArchievedGoals({'m':theMonth, 'y':theYear, 'callback':setArchievedGoals})
     }, [])
 
     return (
@@ -122,36 +165,8 @@ function App() {
                         <select name=""><option value="">2021</option></select>
                     </div>
                 </div>
-                <div className="Dw1_mnt_Cards">
-                    <div className=" Dw1_mnt_Ecd">
-                        <div className="Dw1_mnt_TopM">
-                            <div>Nov 25, 2021</div> <div>Monday</div> <div></div>
-                        </div>
-                        <div className="Dw1_mnt_Mid">
-                            <div className="Dw1_mnt_MEch">
-                                <div className="">Exercised in the morning</div>
-                                <div className="">
-                                    Passed
-                                </div>
-                            </div>
-                            <div className="Dw1_mnt_MEch">
-                                <div className="">Exercised in the morning</div>
-                                <div className="">
-                                    Passed
-                                </div>
-                            </div>
-                            <div className="Dw1_mnt_MEch">
-                                <div className="">Exercised in the morning</div>
-                                <div className="">
-                                    Passed
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className=" Dw1_mnt_Ecd">the card</div>
-                    <div className=" Dw1_mnt_Ecd">the card</div>
-                    <div className=" Dw1_mnt_Ecd">the card</div>
-                </div>
+                <ThisMonthGoalsComponent archievedGoals={archievedGoals} />
+                <button onClick={() => { loadArchievedGoals({'m':theMonth, 'y':theYear, 'callback':setArchievedGoals}) }}>Fetch</button>
             </div>
         </div>
     );
