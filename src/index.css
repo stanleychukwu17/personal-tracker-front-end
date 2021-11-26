@@ -64,10 +64,10 @@ div { position: relative; overflow: hidden; }
   width: 40%; height: 4px; margin: 5px 0; background-color: rgb(199, 82, 140); border-radius: 20px;
 }
 .Dw1_mnt_MEch { padding: 10px 0; font-size: 13px; display: flex; justify-content: space-between; }
-.Dw1_mnt_MEch > div:nth-child(1) { width: 80%; }
+.Dw1_mnt_MEch > div:nth-child(1) { max-width: 75%; }
 
-.Dw1_pass { color: #0056b6; width: 20%; display: flex; justify-content: space-between; text-transform: capitalize; }
+.Dw1_pass { color: #0056b6; width: 23%; display: flex; justify-content: space-between; text-transform: capitalize; }
 .Dw1_fail { color: #FC427B; }
-.Dw1_time { color: #273054; }
+.Dw1_time { color: #273054; text-transform: lowercase; }
 .Dw1_pass svg { width: 20px; height: 20px; }
 .Dw1_time svg { width: 17px; height: 17px; }
