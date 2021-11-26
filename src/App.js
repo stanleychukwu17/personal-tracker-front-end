@@ -110,16 +110,20 @@ function App() {
                 </div>
                 <div className="Hm_LstBtn"><button onClick={()=> {saveTheGoalsNow({theDay, theMonth, theYear, goals})}}>Save changes</button></div>
             </div>
-            <div>
-                <div className="">
-                    <div className="jkm">This month</div>
-                    <div className="jkm"></div>
-                </div>
-                <div className="">
-                    <div className=""></div>
-                    <div className="">
-                        
+
+            <div className="Dw1_mnthCvr">
+                <div className=" Dw1_mnt_1c">
+                    <div className="Dw1_mnt_1name">This month, so far!</div>
+                    <div className="Dw1_mnt_1select">
+                        <select name=""><option value="">Nov</option></select>
+                        <select name=""><option value="">2021</option></select>
                     </div>
+                </div>
+                <div className="Dw1_mnt_Cards">
+                    <div className=" Dw1_mnt_Ecd">the card</div>
+                    <div className=" Dw1_mnt_Ecd">the card</div>
+                    <div className=" Dw1_mnt_Ecd">the card</div>
+                    <div className=" Dw1_mnt_Ecd">the card</div>
                 </div>
             </div>
         </div>

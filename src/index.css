@@ -42,3 +42,9 @@ div { position: relative; overflow: hidden; }
   border: 1px solid #abb8c6;
 }
 .Hm_LstBtn button:active { top: 1px; }
+
+
+.Dw1_mnthCvr {
+  margin: 0 0 40px; background-color: #fff; padding: 20px 1%; display: block; position: relative; overflow: hidden;
+}
+.Dw1_mnt_1c { display: flex; justify-content: space-between; }
