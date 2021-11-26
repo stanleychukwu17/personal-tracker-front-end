@@ -33,7 +33,10 @@ const saveTheGoalsNow = (obj) => {
 }
 
 const loadArchievedGoals = (obj) => {
-    fetch('http://localhost:4000/get-archieved-goals/').then(re => re.json()).then(re => {
+    const {m, y} = obj
+
+    console.log(m, y, new URLSearchParams({m, y}))
+    fetch('http://localhost:4000/get-archieved-goals/' + new URLSearchParams({m, y})).then(re => re.json()).then(re => {
         console.log(re);
         // if (re.rows.length > 0) { setGoals(re.rows) }
     })
@@ -53,7 +56,7 @@ function App() {
             if (re.rows.length > 0) { setGoals(re.rows) }
         })
 
-        loadArchievedGoals({})
+        loadArchievedGoals({'m':theMonth, 'y':theYear})
     }, [])
 
     return (
