@@ -110,6 +110,18 @@ function App() {
                 </div>
                 <div className="Hm_LstBtn"><button onClick={()=> {saveTheGoalsNow({theDay, theMonth, theYear, goals})}}>Save changes</button></div>
             </div>
+            <div>
+                <div className="">
+                    <div className="jkm">This month</div>
+                    <div className="jkm"></div>
+                </div>
+                <div className="">
+                    <div className=""></div>
+                    <div className="">
+                        
+                    </div>
+                </div>
+            </div>
         </div>
     );
 }
