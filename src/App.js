@@ -120,7 +120,31 @@ function App() {
                     </div>
                 </div>
                 <div className="Dw1_mnt_Cards">
-                    <div className=" Dw1_mnt_Ecd">the card</div>
+                    <div className=" Dw1_mnt_Ecd">
+                        <div className="Dw1_mnt_TopM">
+                            <div>Nov 25, 2021</div> <div>Monday</div> <div></div>
+                        </div>
+                        <div className="Dw1_mnt_Mid">
+                            <div className="Dw1_mnt_MEch">
+                                <div className="">Exercised in the morning</div>
+                                <div className="">
+                                    Passed
+                                </div>
+                            </div>
+                            <div className="Dw1_mnt_MEch">
+                                <div className="">Exercised in the morning</div>
+                                <div className="">
+                                    Passed
+                                </div>
+                            </div>
+                            <div className="Dw1_mnt_MEch">
+                                <div className="">Exercised in the morning</div>
+                                <div className="">
+                                    Passed
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div className=" Dw1_mnt_Ecd">the card</div>
                     <div className=" Dw1_mnt_Ecd">the card</div>
                     <div className=" Dw1_mnt_Ecd">the card</div>
