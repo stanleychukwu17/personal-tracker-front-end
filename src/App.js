@@ -1,6 +1,7 @@
 import {useState, useEffect} from 'react'
 
 //--start-- helper functions
+// mufasa is a mini redux, that helps us manage the mini state of whatever select or input element that changes
 const mufasa = (event, gl, wch) => {
     let slt_id = Number(event.target.id), val = event.target.value, obj = [];
 
@@ -14,6 +15,7 @@ const mufasa = (event, gl, wch) => {
     return obj
 }
 
+// saves the goals completed for the date received
 const saveTheGoalsNow = (obj) => {
     const {theDay, theMonth, theYear, goals, callback} = obj;
     let any_empties = false;
@@ -33,6 +35,7 @@ const saveTheGoalsNow = (obj) => {
     })
 }
 
+// loads all the viewer archieved goals
 const loadArchievedGoals = (obj) => {
     const {m, y} = obj
 
@@ -44,6 +47,7 @@ const loadArchievedGoals = (obj) => {
 //--end--
 
 //--start-- helper components
+// simple component that shows if the goal was passes or failed, or if it's just a timer goal
 const PassedComponents = ({typ, typ_val, typ_hours}) => {
     let passed, failed, dtime, txt_write, ext, mins, klass = 'Dw1_pass';
 
@@ -77,6 +81,8 @@ const PassedComponents = ({typ, typ_val, typ_hours}) => {
         </div>
     )
 }
+
+// each of the cards that shows monthly goals
 const ThisMonthGoalsComponent = ({archievedGoals: ag}) => {
     const {msg, every_day} = ag;
 
@@ -84,6 +90,7 @@ const ThisMonthGoalsComponent = ({archievedGoals: ag}) => {
 
     const ech_card = every_day.map(ech => {
         if (ech.goals.length > 0) {
+            console.log(ech)
             return (
                 <div className=" Dw1_mnt_Ecd" key={ech.date}>
                     <div className="Dw1_mnt_TopM">
@@ -106,7 +113,6 @@ const ThisMonthGoalsComponent = ({archievedGoals: ag}) => {
         }
     })
 
-    console.log(every_day);
     return (
         <div className="Dw1_mnt_Cards">
             {ech_card}
