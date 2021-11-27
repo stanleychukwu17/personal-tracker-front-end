@@ -51,22 +51,24 @@ const loadArchievedGoals = (obj) => {
 const PassedComponents = ({typ, typ_val, typ_hours}) => {
     let passed, failed, dtime, txt_write, ext, mins, klass = 'Dw1_pass';
 
+    mins = String(typ_hours).split('.')
+    if (mins.length > 1) {
+        let [m1, m2] = mins;
+        m2 = (Number(m2) * .6) // converting the decimal number back to minutes, so it is understandable to the reader
+        if (m2 > 0) { typ_hours = `${m1}:${m2}`; }
+        else { typ_hours = `${m1}`; }
+    }
+    if (typ === 'select_time' && typ_hours < 12) { ext = 'am' } else if (typ === 'select_time' && typ_hours >= 12) { ext = 'pm' }
+    if (typ === 'input_hours' || typ === 'stats') { ext = 'hr' }
+
     if (typ === 'select_yes') {
         if (typ_val === 'passed') { passed = true; } else { failed = true; klass += ' Dw1_fail'; }
         txt_write = typ_val;
     } else if (typ === 'select_time' || typ === 'input_hours') {
         dtime = true; klass += ' Dw1_time';
-
-        if (typ === 'select_time' && typ_hours < 12) { ext = 'am' } else if (typ === 'select_time' && typ_hours >= 12) { ext = 'pm' }
-        if (typ === 'input_hours') { ext = 'hr' }
-
-        mins = String(typ_hours).split('.')
-        if (mins.length > 1) {
-            let [m1, m2] = mins;
-            m2 = (Number(m2) * .6) // converting the decimal number back to minutes, so it is understandable to the reader
-            typ_hours = `${m1}:${m2}`;
-        }
-
+        txt_write = `${typ_hours} ${ext}`
+    } else if (typ === 'stats') {
+        dtime = true; klass += ' Dw1_time';
         txt_write = `${typ_hours} ${ext}`
     }
 
@@ -90,7 +92,19 @@ const ThisMonthGoalsComponent = ({archievedGoals: ag}) => {
 
     const ech_card = every_day.map(ech => {
         if (ech.goals.length > 0) {
-            console.log(ech)
+            let stats = []
+            let {
+                t1:total_hours_worked, t2:total_time_on_sit, t3:time_lost_b4_start_work, t4:time_lost_to_breaks,
+                t5:time_lost_to_distraction, t6:overall_lost_hours
+            } = ech.stats
+            stats.push({title:'total_hours_worked', total_hours_worked})
+            stats.push({title:'total_time_on_sit', total_time_on_sit})
+            stats.push({title:'time_lost_b4_start_work', time_lost_b4_start_work})
+            stats.push({title:'time_lost_to_breaks', time_lost_to_breaks})
+            stats.push({title:'time_lost_to_distraction', time_lost_to_distraction})
+            stats.push({title:'overall_lost_hours', overall_lost_hours})
+            console.log(stats)
+
             return (
                 <div className=" Dw1_mnt_Ecd" key={ech.date}>
                     <div className="Dw1_mnt_TopM">
@@ -102,6 +116,14 @@ const ThisMonthGoalsComponent = ({archievedGoals: ag}) => {
                                 <div className="Dw1_mnt_MEch" key={v1.typ_id}>
                                     <div>{v1.title}</div>
                                     <PassedComponents typ={v1.typ} typ_val={v1.typ_val} typ_hours={v1.typ_hours} />
+                                </div>
+                            )
+                        })}
+                        {stats.map( v1 => {
+                            return (
+                                <div className="Dw1_mnt_MEch" key={v1.title}>
+                                    <div>{v1.title}</div>
+                                    <PassedComponents typ='stats' typ_hours={v1[v1.title]} />
                                 </div>
                             )
                         })}
