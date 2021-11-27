@@ -71,6 +71,15 @@ div { position: relative; overflow: hidden; }
 ::-webkit-scrollbar-thumb:hover {
   background: #555; 
 }
+
+.Dw1_mnt_Cards { overflow-x: auto !important; padding: 0 0 20px; -ms-overflow-style: -ms-autohiding-scrollbar !important; }
+.Dw1_mnt_Cards::-webkit-scrollbar { width: 10px; height: 3px; }
+.Dw1_mnt_Cards::-webkit-scrollbar-track { background: transparent; }
+.Dw1_mnt_Cards::-webkit-scrollbar-thumb { background: transparent; }
+.Dw1_mnthCvr:hover .Dw1_mnt_Cards::-webkit-scrollbar-track  { background: #f1f1f1; }
+.Dw1_mnthCvr:hover .Dw1_mnt_Cards::-webkit-scrollbar-thumb  { background: #888; }
+
+
 .Dw1_mnt_Ecd {
   min-width: 380px; padding: 0 1.8% 0 1.5%; border-right: 4px solid rgb(199, 82, 140); border-radius: 5px;
   box-shadow: 5px 0 0 rgba(236, 240, 241, 1);

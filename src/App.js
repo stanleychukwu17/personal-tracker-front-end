@@ -103,7 +103,6 @@ const ThisMonthGoalsComponent = ({archievedGoals: ag}) => {
             stats.push({title:'Time_lost_to_breaks', Time_lost_to_breaks})
             stats.push({title:'Time_lost_to_distraction', Time_lost_to_distraction})
             stats.push({title:'Overall_lost_hours', Overall_lost_hours})
-            // console.log(stats)
 
             return (
                 <div className=" Dw1_mnt_Ecd" key={ech.date}>
