@@ -51,6 +51,9 @@ const loadArchievedGoals = (obj) => {
 const PassedComponents = ({typ, typ_val, typ_hours}) => {
     let passed, failed, dtime, txt_write, ext, mins, klass = 'Dw1_pass';
 
+    if (typ === 'select_time' && typ_hours < 12) { ext = 'am' } else if (typ === 'select_time' && typ_hours >= 12) { ext = 'pm' }
+    if (typ === 'input_hours' || typ === 'stats') { ext = 'hr' }
+
     mins = String(typ_hours).split('.')
     if (mins.length > 1) {
         let [m1, m2] = mins;
@@ -58,8 +61,7 @@ const PassedComponents = ({typ, typ_val, typ_hours}) => {
         if (m2 > 0) { typ_hours = `${m1}:${m2}`; }
         else { typ_hours = `${m1}`; }
     }
-    if (typ === 'select_time' && typ_hours < 12) { ext = 'am' } else if (typ === 'select_time' && typ_hours >= 12) { ext = 'pm' }
-    if (typ === 'input_hours' || typ === 'stats') { ext = 'hr' }
+
 
     if (typ === 'select_yes') {
         if (typ_val === 'passed') { passed = true; } else { failed = true; klass += ' Dw1_fail'; }
@@ -92,18 +94,16 @@ const ThisMonthGoalsComponent = ({archievedGoals: ag}) => {
 
     const ech_card = every_day.map(ech => {
         if (ech.goals.length > 0) {
+
             let stats = []
-            let {
-                t1:total_hours_worked, t2:total_time_on_sit, t3:time_lost_b4_start_work, t4:time_lost_to_breaks,
-                t5:time_lost_to_distraction, t6:overall_lost_hours
-            } = ech.stats
-            stats.push({title:'total_hours_worked', total_hours_worked})
-            stats.push({title:'total_time_on_sit', total_time_on_sit})
-            stats.push({title:'time_lost_b4_start_work', time_lost_b4_start_work})
-            stats.push({title:'time_lost_to_breaks', time_lost_to_breaks})
-            stats.push({title:'time_lost_to_distraction', time_lost_to_distraction})
-            stats.push({title:'overall_lost_hours', overall_lost_hours})
-            console.log(stats)
+            let {t1:Total_hours_worked, t2:Total_time_on_sit, t3:Time_lost_b4_start_work, t4:Time_lost_to_breaks, t5:Time_lost_to_distraction, t6:Overall_lost_hours} = ech.stats
+            stats.push({title:'Total_hours_worked', Total_hours_worked})
+            stats.push({title:'Total_time_on_sit', Total_time_on_sit})
+            stats.push({title:'Time_lost_b4_start_work', Time_lost_b4_start_work})
+            stats.push({title:'Time_lost_to_breaks', Time_lost_to_breaks})
+            stats.push({title:'Time_lost_to_distraction', Time_lost_to_distraction})
+            stats.push({title:'Overall_lost_hours', Overall_lost_hours})
+            // console.log(stats)
 
             return (
                 <div className=" Dw1_mnt_Ecd" key={ech.date}>
