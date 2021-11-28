@@ -9,6 +9,7 @@ body {
 }
 
 * {box-sizing: border-box;}
+h1,h2,h3 { padding: 0; margin: 0; }
 div { position: relative; overflow: hidden; }
 .Hm_Hdr1 { padding: 15px 1%; font-size: 25px; }
 
@@ -51,9 +52,7 @@ div { position: relative; overflow: hidden; }
 
 .Dw1_mnt_Cards { display: flex; overflow: auto; }
 /* width */
-::-webkit-scrollbar {
-  width: 10px;
-}
+::-webkit-scrollbar { width: 10px; }
 
 /* Track */
 ::-webkit-scrollbar-track { background: #f1f1f1;  }
@@ -87,6 +86,16 @@ div { position: relative; overflow: hidden; }
 .Dw1_pass svg { width: 20px; height: 20px; }
 .Dw1_time svg { width: 17px; height: 17px; }
 
-.Ps1_mjCvr { width: 40%; }
+
+.Ps1_OldBru { margin: 0 0 80px; background-color: #fff; padding: 20px 10px; display: block; position: relative; overflow: hidden; }
+.Ps1_mjCvr { width: 50%; margin: 10px 0 0; }
 .Ps1_hdrO { display: block; }
-.Ps1_hdrO > div { float: left; position: relative; width: 17%; font-size: 13px; }
+.PsA { float: left; position: relative; font-size: 12px; font-weight: bold; text-align: center; }
+.PsA > span {
+  display: inline-block; position: relative; background-color: #f1f2f6; padding: 5px 15px; border-radius: 3px;
+}
+.Ps1_h1 { width: 46%; text-align: left;  }
+.Ps1_h2 { width: 13%; }
+.Ps1_h3 { width: 13%; }
+.Ps1_h4 { width: 13%; }
+.Ps1_h5 { width: 13%; }

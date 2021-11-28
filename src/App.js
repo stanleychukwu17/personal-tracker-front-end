@@ -227,17 +227,15 @@ function App() {
                 <ThisMonthGoalsComponent archievedGoals={archievedGoals} />
             </div>
 
-            <div className="Dw1_mnthCvr">
-                <div className="">
-                    <h3>Nov, 2021</h3>
-                </div>
+            <div className="Ps1_OldBru">
+                <div className=""><h2>Nov, 2021</h2></div>
                 <div className="Ps1_mjCvr">
                     <div className="Ps1_hdrO">
-                        <div className="">Goals and Activities</div>
-                        <div className="">Total count</div>
-                        <div className="">Passed</div>
-                        <div className="">Failed</div>
-                        <div className="">Scores</div>
+                        <div className="PsA Ps1_h1"><span>Goals and Activities</span></div>
+                        <div className="PsA Ps1_h2"><span>Count</span></div>
+                        <div className="PsA Ps1_h3"><span>Passed</span></div>
+                        <div className="PsA Ps1_h4"><span>Failed</span></div>
+                        <div className="PsA Ps1_h5"><span>Scores</span></div>
                     </div>
                 </div>
             </div>
