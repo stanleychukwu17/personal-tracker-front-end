@@ -226,10 +226,9 @@ function App() {
                 <ThisMonthGoalsComponent archievedGoals={archievedGoals} />
             </div>
 
-            <div className="">A couple of months behind</div>
             <div className="Dw1_mnthCvr">
                 <div className="Ps1_mjCvr">
-                    <div className="">
+                    <div className="Ps1_hdrO">
                         <div className="">Goals and Activities</div>
                         <div className="">Total count</div>
                         <div className="">Passed</div>

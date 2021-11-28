@@ -89,6 +89,6 @@ div { position: relative; overflow: hidden; }
 .Dw1_pass svg { width: 20px; height: 20px; }
 .Dw1_time svg { width: 17px; height: 17px; }
 
-.Ps1_mjCvr {
-  width: 40%;
-}
+.Ps1_mjCvr { width: 40%; }
+.Ps1_hdrO { display: block; }
+.Ps1_hdrO > div { float: left; position: relative; width: 17%; font-size: 13px; }
