@@ -58,19 +58,11 @@ div { position: relative; overflow: hidden; }
 }
 
 /* Track */
-::-webkit-scrollbar-track {
-  background: #f1f1f1; 
-}
- 
+::-webkit-scrollbar-track { background: #f1f1f1;  }
 /* Handle */
-::-webkit-scrollbar-thumb {
-  background: #888; 
-}
-
+::-webkit-scrollbar-thumb { background: #888;  }
 /* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #555; 
-}
+::-webkit-scrollbar-thumb:hover { background: #555;  }
 
 
 .Dw1_mnt_Cards { overflow-x: auto !important; padding: 0 0 20px; -ms-overflow-style: -ms-autohiding-scrollbar !important; }
