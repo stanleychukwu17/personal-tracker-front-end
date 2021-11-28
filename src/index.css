@@ -92,7 +92,7 @@ div { position: relative; overflow: hidden; }
 .Ps1_hdrO { display: block; }
 .PsA { float: left; position: relative; font-size: 12px; font-weight: bold; text-align: center; }
 .PsA > span { display: inline-block; position: relative; background-color: #f1f2f6; padding: 5px 15px; border-radius: 3px; }
-.Ps1_h1 { width: 46%; text-align: left; }
+.Ps1_h1 { width: 46%; text-align: left!important; }
 .Ps1_h2 { width: 13%; }
 .Ps1_h3 { width: 13%; }
 .Ps1_h4 { width: 13%; }
@@ -101,3 +101,6 @@ div { position: relative; overflow: hidden; }
 .Ps1_h3 > span { background-color: #73c3ce; }
 .Ps1_h4 > span { background-color: #D9304F; }
 .Ps1_h5 > span { background-color: #6ea2dd; }
+
+.P2ech_Cvr { display: block; }
+.P2ech_i { float: left; position: relative; font-size: 12px; font-weight: bold; text-align: center;  }

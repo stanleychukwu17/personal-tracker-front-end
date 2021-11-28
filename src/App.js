@@ -237,6 +237,19 @@ function App() {
                         <div className="PsA Ps1_h4"><span>Failed</span></div>
                         <div className="PsA Ps1_h5"><span>Scores</span></div>
                     </div>
+                    <div className="">
+                        {archievedGoals.c1 && archievedGoals.c1.map(ech => {
+                            return (
+                                <div className="P2ech_Cvr">
+                                    <div className="P2ech_i Ps1_h1">{ech.title}</div>
+                                    <div className="P2ech_i Ps1_h2">{ech.total}</div>
+                                    <div className="P2ech_i Ps1_h3">{ech.passed}</div>
+                                    <div className="P2ech_i Ps1_h4">{ech.failed}</div>
+                                    <div className="P2ech_i Ps1_h5">{ech.scores}%</div>
+                                </div>
+                            )
+                        })}
+                    </div>
                 </div>
             </div>
         </div>
