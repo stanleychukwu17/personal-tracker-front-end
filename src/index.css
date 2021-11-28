@@ -44,9 +44,7 @@ div { position: relative; overflow: hidden; }
 .Hm_LstBtn button:active { top: 1px; }
 
 
-.Dw1_mnthCvr {
-  margin: 0 0 80px; background-color: #fff; padding: 20px 0; display: block; position: relative; overflow: hidden;
-}
+.Dw1_mnthCvr { margin: 0 0 80px; background-color: #fff; padding: 20px 0; display: block; position: relative; overflow: hidden; }
 .Dw1_mnt_1c { display: flex; justify-content: space-between; padding: 0 1% 15px; }
 .Dw1_mnt_1name { font-size: 23px; letter-spacing: 1px; padding: 5px 0 0; }
 .Dw1_mnt_1select select { width: 80px; padding: 7px 10px; background-color: #f1f2f6; border-color: transparent; font-size: 14px; font-weight: bold; text-transform: capitalize; margin: 0 5px; }

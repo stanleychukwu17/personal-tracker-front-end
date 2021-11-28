@@ -40,6 +40,7 @@ const loadArchievedGoals = (obj) => {
     const {m, y} = obj
 
     fetch('http://localhost:4000/get-archieved-goals/?' + new URLSearchParams({m, y})).then(re => re.json()).then(re => {
+        console.log(re.c1)
         obj.callback(re)
         // if (re.rows.length > 0) { setGoals(re.rows) }
     })
@@ -227,6 +228,9 @@ function App() {
             </div>
 
             <div className="Dw1_mnthCvr">
+                <div className="">
+                    <h3>Nov, 2021</h3>
+                </div>
                 <div className="Ps1_mjCvr">
                     <div className="Ps1_hdrO">
                         <div className="">Goals and Activities</div>
