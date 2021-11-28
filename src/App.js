@@ -224,7 +224,19 @@ function App() {
                     </div>
                 </div>
                 <ThisMonthGoalsComponent archievedGoals={archievedGoals} />
-                <button onClick={() => { loadArchievedGoals({'m':theMonth, 'y':theYear, 'callback':setArchievedGoals}) }}>Fetch</button>
+            </div>
+
+            <div className="">A couple of months behind</div>
+            <div className="Dw1_mnthCvr">
+                <div className="Ps1_mjCvr">
+                    <div className="">
+                        <div className="">Goals and Activities</div>
+                        <div className="">Total count</div>
+                        <div className="">Passed</div>
+                        <div className="">Failed</div>
+                        <div className="">Scores</div>
+                    </div>
+                </div>
             </div>
         </div>
     );
