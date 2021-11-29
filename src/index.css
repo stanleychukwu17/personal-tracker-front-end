@@ -53,14 +53,12 @@ div { position: relative; overflow: hidden; }
 .Dw1_mnt_Cards { display: flex; overflow: auto; }
 /* width */
 ::-webkit-scrollbar { width: 10px; }
-
 /* Track */
 ::-webkit-scrollbar-track { background: #f1f1f1;  }
 /* Handle */
 ::-webkit-scrollbar-thumb { background: #888;  }
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover { background: #555;  }
-
 
 .Dw1_mnt_Cards { overflow-x: auto !important; padding: 0 0 20px; -ms-overflow-style: -ms-autohiding-scrollbar !important; }
 .Dw1_mnt_Cards::-webkit-scrollbar { width: 10px; height: 3px; }
@@ -88,7 +86,8 @@ div { position: relative; overflow: hidden; }
 
 
 .Ps1_OldBru { margin: 0 0 80px; background-color: #fff; padding: 20px 10px; display: block; position: relative; overflow: hidden; }
-.Ps1_mjCvr { width: 50%; margin: 10px 0 0; }
+.PsssCover > div { float: left; width: 50%; }
+.Ps1_mjCvr { margin: 10px 0 0; }
 .Ps1_hdrO { display: block; }
 .PsA { float: left; position: relative; font-size: 12px; font-weight: bold; text-align: center; }
 .PsA > span { display: inline-block; position: relative; background-color: #f1f2f6; padding: 5px 15px; border-radius: 3px; }
@@ -101,6 +100,8 @@ div { position: relative; overflow: hidden; }
 .Ps1_h3 > span { background-color: #73c3ce; }
 .Ps1_h4 > span { background-color: #D9304F; }
 .Ps1_h5 > span { background-color: #6ea2dd; }
+
+.Ps2_mjCvr {}
 
 .P2ech_Cvr { display: block; padding: 10px 0; }
 .P2ech_i { float: left; position: relative; font-size: 12px; font-weight: 500; text-align: center;  }

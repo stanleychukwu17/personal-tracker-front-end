@@ -229,26 +229,38 @@ function App() {
 
             <div className="Ps1_OldBru">
                 <div className=""><h2>Nov, 2021</h2></div>
-                <div className="Ps1_mjCvr">
-                    <div className="Ps1_hdrO">
-                        <div className="PsA Ps1_h1"><span>Goals and Activities</span></div>
-                        <div className="PsA Ps1_h2"><span>Count</span></div>
-                        <div className="PsA Ps1_h3"><span>Passed</span></div>
-                        <div className="PsA Ps1_h4"><span>Failed</span></div>
-                        <div className="PsA Ps1_h5"><span>Scores</span></div>
+                <div className="PsssCover">
+                    <div className="Ps1_mjCvr">
+                        <div className="Ps1_hdrO">
+                            <div className="PsA Ps1_h1"><span>Goals and Activities</span></div>
+                            <div className="PsA Ps1_h2"><span>Count</span></div>
+                            <div className="PsA Ps1_h3"><span>Passed</span></div>
+                            <div className="PsA Ps1_h4"><span>Failed</span></div>
+                            <div className="PsA Ps1_h5"><span>Scores</span></div>
+                        </div>
+                        <div className="">
+                            {archievedGoals.c1 && archievedGoals.c1.map(ech => {
+                                return (
+                                    <div className="P2ech_Cvr">
+                                        <div className="P2ech_i Ps1_h1">{ech.title}</div>
+                                        <div className="P2ech_i Ps1_h2">{ech.total}</div>
+                                        <div className="P2ech_i Ps1_h3">{ech.passed}</div>
+                                        <div className="P2ech_i Ps1_h4">{ech.failed}</div>
+                                        <div className="P2ech_i Ps1_h5">{ech.scores}%</div>
+                                    </div>
+                                )
+                            })}
+                        </div>
                     </div>
-                    <div className="">
-                        {archievedGoals.c1 && archievedGoals.c1.map(ech => {
-                            return (
-                                <div className="P2ech_Cvr">
-                                    <div className="P2ech_i Ps1_h1">{ech.title}</div>
-                                    <div className="P2ech_i Ps1_h2">{ech.total}</div>
-                                    <div className="P2ech_i Ps1_h3">{ech.passed}</div>
-                                    <div className="P2ech_i Ps1_h4">{ech.failed}</div>
-                                    <div className="P2ech_i Ps1_h5">{ech.scores}%</div>
-                                </div>
-                            )
-                        })}
+                    <div className="Ps2_mjCvr">
+                        <div className="">
+                            <div className="">The boy 1</div>
+                            <div className=""></div>
+                        </div>
+                        <div className="">
+                            <div className="">The next boy 2</div>
+                            <div className=""></div>
+                        </div>
                     </div>
                 </div>
             </div>
