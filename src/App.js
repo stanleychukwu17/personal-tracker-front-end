@@ -239,7 +239,7 @@ function App() {
                             <div className="PsA Ps1_h5"><span>Scores</span></div>
                         </div>
                         <div className="">
-                            {archievedGoals.c1 && archievedGoals.c1.map(ech => {
+                            {archievedGoals.mth && archievedGoals.mth.a.map(ech => {
                                 return (
                                     <div className="P2ech_Cvr">
                                         <div className="P2ech_i Ps1_h1">{ech.title}</div>
