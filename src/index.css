@@ -79,7 +79,7 @@ div { position: relative; overflow: hidden; }
 .PsssCover > div { float: left; width: 50%; }
 .Ps1_mjCvr { margin: 10px 0 0; }
 .Ps1_hdrO { display: block; }
-.PsA { float: left; position: relative; font-size: 12px; font-weight: bold; text-align: center; }
+.PsA { float: left; position: relative; font-size: 12px; font-weight: bold; text-align: center; padding: 10px 0; }
 .PsA > span { display: inline-block; position: relative; background-color: #f1f2f6; padding: 5px 15px; border-radius: 3px; }
 .Ps1_h1 { width: 46%; text-align: left!important; }
 .Ps1_h2 { width: 13%; }
@@ -90,8 +90,16 @@ div { position: relative; overflow: hidden; }
 .Ps1_h3 > span { background-color: #73c3ce; }
 .Ps1_h4 > span { background-color: #D9304F; }
 .Ps1_h5 > span { background-color: #6ea2dd; }
-
-.Ps2_mjCvr {}
-
 .P2ech_Cvr { display: block; padding: 10px 0; }
 .P2ech_i { float: left; position: relative; font-size: 12px; font-weight: 500; text-align: center;  }
+
+.Ps2_mjCvr { height: 500px; padding: 0 0 0 50px; }
+.Ps2_mjCvr:after {
+  content: ""; display: block; position: absolute;
+  left: 0; top: 50px; right: auto; bottom: auto;
+  height: 400px; width: 5px; border-radius: 50px; background-color: rgb(199, 82, 140);
+}
+
+.Dw1_mnt_TopM { font-family: 14px; font-weight: bold; }
+.Dw1_mnt_TopM > div:nth-child(2) { font-size: 12px; padding: 3px 0 0; }
+.Dw1_mnt_TopM > div:nth-child(3) { width: 40%; height: 4px; margin: 5px 0; background-color: rgb(199, 82, 140); border-radius: 20px; }
