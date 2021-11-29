@@ -40,7 +40,7 @@ const loadArchievedGoals = (obj) => {
     const {m, y} = obj
 
     fetch('http://localhost:4000/get-archieved-goals/?' + new URLSearchParams({m, y})).then(re => re.json()).then(re => {
-        console.log(re.c1)
+        console.log(re.mth)
         obj.callback(re)
         // if (re.rows.length > 0) { setGoals(re.rows) }
     })
@@ -241,7 +241,7 @@ function App() {
                         <div className="">
                             {archievedGoals.mth && archievedGoals.mth.a.map(ech => {
                                 return (
-                                    <div className="P2ech_Cvr">
+                                    <div className="P2ech_Cvr" key={ech.title}>
                                         <div className="P2ech_i Ps1_h1">{ech.title}</div>
                                         <div className="P2ech_i Ps1_h2">{ech.total}</div>
                                         <div className="P2ech_i Ps1_h3">{ech.passed}</div>
@@ -254,8 +254,24 @@ function App() {
                     </div>
                     <div className="Ps2_mjCvr">
                         <div className="Ps2_mDir">
+                            {archievedGoals.mth && archievedGoals.mth.b.map(ech => {
+                                return (
+                                    <div className="P2ech_Cvr" key={ech.title}>
+                                        <div className="P2ech_i Ps1_h6">{ech.title}</div>
+                                        <div className="P2ech_i Ps1_h7">{ech.avg}</div>
+                                    </div>
+                                )
+                            })}
                         </div>
                         <div className="Ps2_mDir">
+                            {archievedGoals.mth && archievedGoals.mth.b.map(ech => {
+                                return (
+                                    <div className="P2ech_Cvr" key={ech.title}>
+                                        <div className="P2ech_i Ps1_h6">{ech.title}</div>
+                                        <div className="P2ech_i Ps1_h7">{ech.avg}</div>
+                                    </div>
+                                )
+                            })}
                         </div>
                     </div>
                 </div>

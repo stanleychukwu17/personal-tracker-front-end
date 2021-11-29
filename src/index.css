@@ -81,7 +81,7 @@ div { position: relative; overflow: hidden; }
 .Ps1_hdrO { display: block; }
 .PsA { float: left; position: relative; font-size: 12px; font-weight: bold; text-align: center; padding: 10px 0; }
 .PsA > span { display: inline-block; position: relative; background-color: #f1f2f6; padding: 5px 15px; border-radius: 3px; }
-.Ps1_h1 { width: 46%; text-align: left!important; }
+.Ps1_h1 { width: 46%; text-align: left !important; }
 .Ps1_h2 { width: 13%; }
 .Ps1_h3 { width: 13%; }
 .Ps1_h4 { width: 13%; }
@@ -99,7 +99,8 @@ div { position: relative; overflow: hidden; }
   left: 0; top: 20px; right: auto; bottom: auto;
   height: 460px; width: 5px; border-radius: 50px; background-color: rgb(199, 82, 140);
 }
-.Ps2_mDir { height: 50%; }
-
-/* .Ps2_mtitle { font-family: 14px; font-weight: bold; }
-.Ps2_mtitle > div:nth-child(2) { width: 20%; height: 4px; margin: 5px 0; background-color: rgb(199, 82, 140); border-radius: 20px; } */
+.Ps2_mDir { float: left; }
+.Ps2_mDir:nth-child(1) { width: 50%; margin: 50px 3% 0 0; }
+.Ps2_mDir:nth-child(2) { width: 47%; margin: 50px 0 0 0; }
+.Ps1_h6 { width: 70%; text-align: left !important; }
+.Ps1_h7 { width: 13%; }
