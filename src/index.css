@@ -44,6 +44,7 @@ div { position: relative; overflow: hidden; }
 .Dw1_mnt_1select select { width: 80px; padding: 7px 10px; background-color: #f1f2f6; border-color: transparent; font-size: 14px; font-weight: bold; text-transform: capitalize; margin: 0 5px; }
 
 .Dw1_mnt_Cards { display: flex; overflow: auto; }
+
 /* width */
 ::-webkit-scrollbar { width: 10px; }
 /* Track */
