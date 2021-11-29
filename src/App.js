@@ -248,6 +248,7 @@ function App() {
                     <div className="Ps2_mjCvr">
                         <div className="Ps2_mDir">
                             {archievedGoals.mth && archievedGoals.mth.b.map(ech => {
+                                const avg = showProperMinutes(ech.avg, ech.typ)
                                 return (
                                     <div className="P2ech_Cvr" key={ech.title}>
                                         <div className="P2ech_i Ps1_h6">{ech.title}</div>
