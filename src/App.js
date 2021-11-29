@@ -38,41 +38,34 @@ const saveTheGoalsNow = (obj) => {
 // loads all the viewer archieved goals
 const loadArchievedGoals = (obj) => {
     const {m, y} = obj
-
-    fetch('http://localhost:4000/get-archieved-goals/?' + new URLSearchParams({m, y})).then(re => re.json()).then(re => {
-        console.log(re.mth)
-        obj.callback(re)
-        // if (re.rows.length > 0) { setGoals(re.rows) }
-    })
+    fetch('http://localhost:4000/get-archieved-goals/?' + new URLSearchParams({m, y})).then(re => re.json()).then(re => { obj.callback(re) })
 }
 //--end--
 
 //--start-- helper components
-// simple component that shows if the goal was passes or failed, or if it's just a timer goal
-const PassedComponents = ({typ, typ_val, typ_hours}) => {
-    let passed, failed, dtime, txt_write, ext, mins, klass = 'Dw1_pass';
+const showProperMinutes = (tyme, wch) => {
+    let ret = tyme, ext, mins = String(tyme).split('.')
+    if (wch === 'select_time' && tyme < 12) { ext = 'am' } else if (wch === 'select_time' && tyme >= 12) { ext = 'pm' }
+    if (wch === 'input_hours' || wch === 'stats') { ext = 'hr' }
 
-    if (typ === 'select_time' && typ_hours < 12) { ext = 'am' } else if (typ === 'select_time' && typ_hours >= 12) { ext = 'pm' }
-    if (typ === 'input_hours' || typ === 'stats') { ext = 'hr' }
-
-    mins = String(typ_hours).split('.')
     if (mins.length > 1) {
         let [m1, m2] = mins;
         m2 = (Number(m2) * .6) // converting the decimal number back to minutes, so it is understandable to the reader
-        if (m2 > 0) { typ_hours = `${m1}:${m2}`; }
-        else { typ_hours = `${m1}`; }
+        if (m2 > 0) { ret = `${m1}:${m2}`; } else { ret = `${m1}`; }
     }
+    return `${ret} ${ext}`;
+}
 
+// simple component that shows if the goal was passes or failed, or if it's just a timer goal
+const PassedComponents = ({typ, typ_val, typ_hours}) => {
+    let passed, failed, dtime, txt_write, klass = 'Dw1_pass';
 
     if (typ === 'select_yes') {
         if (typ_val === 'passed') { passed = true; } else { failed = true; klass += ' Dw1_fail'; }
         txt_write = typ_val;
-    } else if (typ === 'select_time' || typ === 'input_hours') {
+    } else if (typ === 'select_time' || typ === 'input_hours' || typ === 'stats') {
         dtime = true; klass += ' Dw1_time';
-        txt_write = `${typ_hours} ${ext}`
-    } else if (typ === 'stats') {
-        dtime = true; klass += ' Dw1_time';
-        txt_write = `${typ_hours} ${ext}`
+        txt_write = showProperMinutes(typ_hours, typ); // shows the time properly
     }
 
     return (
@@ -264,11 +257,11 @@ function App() {
                             })}
                         </div>
                         <div className="Ps2_mDir">
-                            {archievedGoals.mth && archievedGoals.mth.b.map(ech => {
+                            {archievedGoals.mth && archievedGoals.mth.c.map(ech => {
                                 return (
                                     <div className="P2ech_Cvr" key={ech.title}>
                                         <div className="P2ech_i Ps1_h6">{ech.title}</div>
-                                        <div className="P2ech_i Ps1_h7">{ech.avg}</div>
+                                        <div className="P2ech_i Ps1_h7">{ech.tot}</div>
                                     </div>
                                 )
                             })}
