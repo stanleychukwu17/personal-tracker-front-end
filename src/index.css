@@ -96,10 +96,10 @@ div { position: relative; overflow: hidden; }
 .Ps2_mjCvr { height: 500px; padding: 0 0 0 50px; }
 .Ps2_mjCvr:after {
   content: ""; display: block; position: absolute;
-  left: 0; top: 50px; right: auto; bottom: auto;
-  height: 400px; width: 5px; border-radius: 50px; background-color: rgb(199, 82, 140);
+  left: 0; top: 20px; right: auto; bottom: auto;
+  height: 460px; width: 5px; border-radius: 50px; background-color: rgb(199, 82, 140);
 }
+.Ps2_mDir { height: 50%; }
 
-.Dw1_mnt_TopM { font-family: 14px; font-weight: bold; }
-.Dw1_mnt_TopM > div:nth-child(2) { font-size: 12px; padding: 3px 0 0; }
-.Dw1_mnt_TopM > div:nth-child(3) { width: 40%; height: 4px; margin: 5px 0; background-color: rgb(199, 82, 140); border-radius: 20px; }
+/* .Ps2_mtitle { font-family: 14px; font-weight: bold; }
+.Ps2_mtitle > div:nth-child(2) { width: 20%; height: 4px; margin: 5px 0; background-color: rgb(199, 82, 140); border-radius: 20px; } */

@@ -254,12 +254,8 @@ function App() {
                     </div>
                     <div className="Ps2_mjCvr">
                         <div className="Ps2_mDir">
-                            <div className="">The boy 1</div>
-                            <div className=""></div>
                         </div>
                         <div className="Ps2_mDir">
-                            <div className="">The next boy 2</div>
-                            <div className=""></div>
                         </div>
                     </div>
                 </div>
