@@ -1,8 +1,6 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #ecf0f1;
@@ -17,9 +15,7 @@ div { position: relative; overflow: hidden; }
 .Hm_boxCvr { background: #fff; margin: 5px 0 55px; padding: 15px 1%; }
 .Hm_EMkdons { font-size: 19px; margin: 0 1%; font-weight: bold; }
 .Hm_Todays { padding: 10px 0; margin: 20px 1% 0; }
-.Hm_Todays select {
-  width: 90px; padding: 10px 10px; margin: 0 15px 0 0; background-color: #f1f2f6; border-color: transparent; font-size: 14px; font-weight: bold; text-transform: capitalize;
-}
+.Hm_Todays select { width: 90px; padding: 10px 10px; margin: 0 15px 0 0; background-color: #f1f2f6; border-color: transparent; font-size: 14px; font-weight: bold; text-transform: capitalize; }
 .Hm_EchCPops { display: flex; flex-wrap: wrap; margin: 10px 0 0; }
 .Hm_EchCCvr { min-width: 23%; max-width: 23%; margin: 13px 1% 10px; }
 .Hm_EchCd_1 { font-size: 13.45px; letter-spacing: 1px; }
@@ -38,10 +34,7 @@ div { position: relative; overflow: hidden; }
   cursor: pointer;
   transition: all ease-out .3s;
 }
-.Hm_LstBtn button:hover {
-  box-shadow: none; margin-top: -0.4px;
-  border: 1px solid #abb8c6;
-}
+.Hm_LstBtn button:hover { box-shadow: none; margin-top: -0.4px; border: 1px solid #abb8c6; }
 .Hm_LstBtn button:active { top: 1px; }
 
 
@@ -69,10 +62,7 @@ div { position: relative; overflow: hidden; }
 
 
 
-.Dw1_mnt_Ecd {
-  min-width: 380px; padding: 0 1.8% 0 1.5%; border-right: 4px solid rgb(199, 82, 140); border-radius: 5px;
-  box-shadow: 5px 0 0 rgba(236, 240, 241, 1);
-}
+.Dw1_mnt_Ecd { min-width: 380px; padding: 0 1.8% 0 1.5%; border-right: 4px solid rgb(199, 82, 140); border-radius: 5px; box-shadow: 5px 0 0 rgba(236, 240, 241, 1); }
 .Dw1_mnt_TopM { font-family: 14px; font-weight: bold; }
 .Dw1_mnt_TopM > div:nth-child(2) { font-size: 12px; padding: 3px 0 0; }
 .Dw1_mnt_TopM > div:nth-child(3) { width: 40%; height: 4px; margin: 5px 0; background-color: rgb(199, 82, 140); border-radius: 20px; }
