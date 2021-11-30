@@ -207,7 +207,7 @@ function App() {
                     <div className="Dw1_mnt_1select">
                         <select value={dShow.m} onChange={(e) => { setDshow({...dShow, 'm':e.target.value}) }}>{monthNames.map((ech, k) => <option value={k+1} key={ech}>{ech}</option>)}</select>
                         <select value={dShow.y} onChange={(e) => { setDshow({...dShow, 'y':e.target.value}) }}>{yearArr.map(ech => <option value={ech} key={ech}>{ech}</option>)}</select>
-                        <a href="/bufr.php" onClick={(e) => { e.preventDefault(); console.log('we dey see am up here!') }}>Update result</a>
+                        <a href="/bufr.php" onClick={(e) => { e.preventDefault(); loadArchievedGoals({'m':dShow.m, 'y':dShow.y, 'callback':setArchievedGoals}) }}>Update result</a>
                     </div>
                 </div>
                 <ThisMonthGoalsComponent archievedGoals={archievedGoals} />
