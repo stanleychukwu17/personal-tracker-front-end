@@ -1,4 +1,6 @@
 import {useState, useEffect} from 'react'
+const monthNames = ["Jan", "Feb", "March", "April", "May", "June", "July", "Aug", "Sep", "Oct", "Nov", "Dec"];
+const yearArr = [2021, 2022, 2023, 2024, 2025, 2026, 2027, 2028]
 
 //--start-- helper functions
 // mufasa is a mini redux, that helps us manage the mini state of whatever select or input element that changes
@@ -161,20 +163,11 @@ function App() {
                 <div className="Hm_EMkdons">Ready for today's record?</div>
                 <div className="Hm_Todays">
                     <select value={theDay} onChange={(e) => { setTheDay(Number(e.target.value)) }}>
-                        <option value="">Day</option>
                         {(() => { onome = []; for (let i = 1; i <= 31; i++) { onome.push(i); } })()}
                         {onome.map(ech => <option value={ech} key={ech}>{ech}</option>)}
                     </select>
-                    <select value={theMonth} onChange={(e) => { setTheMonth(Number(e.target.value)) }}>
-                        <option value="">Month</option>
-                        {(() => { onome = []; for (let i = 1; i <= 12; i++) { onome.push(i); } })()}
-                        {onome.map(ech => <option value={ech} key={ech}>{ech}</option>)}
-                    </select>
-                    <select value={theYear} onChange={(e) => { setTheYear(Number(e.target.value)) }}>
-                        <option value="">Year</option>
-                        {(() => { onome = []; for (let i = 2021; i <= (theYear+1); i++) { onome.push(i); } })()}
-                        {onome.map(ech => <option value={ech} key={ech}>{ech}</option>)}
-                    </select>
+                    <select value={theMonth} onChange={(e) => { setTheMonth(Number(e.target.value)) }}>{monthNames.map((ech, k) => <option value={k+1} key={ech}>{ech}</option>)}</select>
+                    <select value={theYear} onChange={(e) => { setTheYear(Number(e.target.value)) }}>{yearArr.map(ech => <option value={ech} key={ech}>{ech}</option>)}</select>
                 </div>
                 <div className="Hm_EchCPops">
                     {goals.map(ech => {
@@ -199,9 +192,7 @@ function App() {
                         return (
                             <div className="Hm_EchCCvr" key={ech.id}>
                                 <div className="Hm_EchCd_1">{ech.title}</div>
-                                <div className="Hm_EchCd_2">
-                                    {slt_typ}
-                                </div>
+                                <div className="Hm_EchCd_2">{slt_typ}</div>
                             </div>
                         )
                     })}
@@ -213,8 +204,11 @@ function App() {
                 <div className=" Dw1_mnt_1c">
                     <div className="Dw1_mnt_1name">This month, so far!</div>
                     <div className="Dw1_mnt_1select">
-                        <select name=""><option value="">Nov</option></select>
-                        <select name=""><option value="">2021</option></select>
+                        <select>{monthNames.map((ech, k) => <option value={k+1} key={ech}>{ech}</option>)}</select>
+                        <select>
+                            {(() => { onome = []; for (let i = 2021; i <= (theYear+5); i++) { onome.push(i); } })()}
+                            {onome.map(ech => <option value={ech} key={ech}>{ech}</option>)}
+                        </select>
                     </div>
                 </div>
                 <ThisMonthGoalsComponent archievedGoals={archievedGoals} />
