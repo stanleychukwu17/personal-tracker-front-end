@@ -39,11 +39,8 @@ const saveTheGoalsNow = (obj) => {
 
 // loads all the viewer archieved goals
 const loadArchievedGoals = (obj) => {
-    const {m, y, getLastSix} = obj
-    obj.callback(c => { console.log(c); return c})
-    fetch('http://localhost:4000/get-archieved-goals/?' + new URLSearchParams({m, y, getLastSix})).then(re => re.json()).then(re => {
-        obj.callback(re)
-    })
+    const {m, y} = obj
+    fetch('http://localhost:4000/get-archieved-goals/?' + new URLSearchParams({m, y})).then(re => re.json()).then(re => { obj.callback(c => { return {...c, ...re}}) })
 }
 //--end--
 
@@ -157,7 +154,7 @@ function App() {
             if (re.rows.length > 0) { setGoals(re.rows) }
         })
 
-        loadArchievedGoals({'m':theMonth, 'y':theYear, 'getLastSix':'yes', 'callback':setArchievedGoals})
+        loadArchievedGoals({'m':theMonth, 'y':theYear, 'callback':setArchievedGoals})
     }, [])
 
     return (
@@ -228,7 +225,7 @@ function App() {
                             <div className="PsA Ps1_h5"><span>Scores</span></div>
                         </div>
                         <div className="">
-                            {archievedGoals.mth && archievedGoals.mth.a.map(ech => {
+                            {archievedGoals.mth && archievedGoals.mth.a && archievedGoals.mth.a.map(ech => {
                                 return (
                                     <div className="P2ech_Cvr" key={ech.title}>
                                         <div className="P2ech_i Ps1_h1">{ech.title}</div>
