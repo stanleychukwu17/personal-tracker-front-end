@@ -102,5 +102,5 @@ div { position: relative; overflow: hidden; }
 .Ps2_mDir { float: left; }
 .Ps2_mDir:nth-child(1) { width: 50%; margin: 50px 3% 0 0; }
 .Ps2_mDir:nth-child(2) { width: 47%; margin: 50px 0 0 0; }
-.Ps1_h6 { width: 70%; text-align: left !important; }
-.Ps1_h7 { width: 13%; }
+.Ps1_h6 { width: 75%; text-align: left !important; }
+.Ps1_h7 { width: 15%; text-align: left !important; }

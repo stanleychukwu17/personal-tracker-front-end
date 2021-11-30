@@ -50,7 +50,7 @@ const showProperMinutes = (tyme, wch) => {
 
     if (mins.length > 1) {
         let [m1, m2] = mins;
-        m2 = (Number(m2) * .6) // converting the decimal number back to minutes, so it is understandable to the reader
+        m2 = (Number(m2) * .6).toFixed(0) // converting the decimal number back to minutes, so it is understandable to the reader
         if (m2 > 0) { ret = `${m1}:${m2}`; } else { ret = `${m1}`; }
     }
     return `${ret} ${ext}`;
@@ -248,21 +248,22 @@ function App() {
                     <div className="Ps2_mjCvr">
                         <div className="Ps2_mDir">
                             {archievedGoals.mth && archievedGoals.mth.b.map(ech => {
-                                const avg = showProperMinutes(ech.avg, ech.typ)
+                                const avg = showProperMinutes(ech.avg, ech.typ || 'stats')
                                 return (
                                     <div className="P2ech_Cvr" key={ech.title}>
                                         <div className="P2ech_i Ps1_h6">{ech.title}</div>
-                                        <div className="P2ech_i Ps1_h7">{ech.avg}</div>
+                                        <div className="P2ech_i Ps1_h7">{avg}</div>
                                     </div>
                                 )
                             })}
                         </div>
                         <div className="Ps2_mDir">
                             {archievedGoals.mth && archievedGoals.mth.c.map(ech => {
+                                const tot = showProperMinutes(ech.tot, ech.typ || 'stats')
                                 return (
                                     <div className="P2ech_Cvr" key={ech.title}>
                                         <div className="P2ech_i Ps1_h6">{ech.title}</div>
-                                        <div className="P2ech_i Ps1_h7">{ech.tot}</div>
+                                        <div className="P2ech_i Ps1_h7">{tot}</div>
                                     </div>
                                 )
                             })}
