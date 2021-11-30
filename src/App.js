@@ -40,7 +40,9 @@ const saveTheGoalsNow = (obj) => {
 // loads all the viewer archieved goals
 const loadArchievedGoals = (obj) => {
     const {m, y} = obj
-    fetch('http://localhost:4000/get-archieved-goals/?' + new URLSearchParams({m, y})).then(re => re.json()).then(re => { obj.callback(c => { return {...c, ...re}}) })
+    fetch('http://localhost:4000/get-archieved-goals/?' + new URLSearchParams({m, y})).then(re => re.json()).then(re => {
+        console.log(re);
+        obj.callback(c => { return {...c, ...re}}) })
 }
 //--end--
 
@@ -213,57 +215,62 @@ function App() {
                 <ThisMonthGoalsComponent archievedGoals={archievedGoals} />
             </div>
 
-            <div className="Ps1_OldBru">
-                <div className=""><h2>Nov, 2021</h2></div>
-                <div className="PsssCover">
-                    <div className="Ps1_mjCvr">
-                        <div className="Ps1_hdrO">
-                            <div className="PsA Ps1_h1"><span>Goals and Activities</span></div>
-                            <div className="PsA Ps1_h2"><span>Count</span></div>
-                            <div className="PsA Ps1_h3"><span>Passed</span></div>
-                            <div className="PsA Ps1_h4"><span>Failed</span></div>
-                            <div className="PsA Ps1_h5"><span>Scores</span></div>
-                        </div>
-                        <div className="">
-                            {archievedGoals.mth && archievedGoals.mth.a && archievedGoals.mth.a.map(ech => {
-                                return (
-                                    <div className="P2ech_Cvr" key={ech.title}>
-                                        <div className="P2ech_i Ps1_h1">{ech.title}</div>
-                                        <div className="P2ech_i Ps1_h2">{ech.total}</div>
-                                        <div className="P2ech_i Ps1_h3">{ech.passed}</div>
-                                        <div className="P2ech_i Ps1_h4">{ech.failed}</div>
-                                        <div className="P2ech_i Ps1_h5">{ech.scores}%</div>
-                                    </div>
-                                )
-                            })}
+            {archievedGoals.diff_month_stats && archievedGoals.diff_month_stats.map( zub => {
+                return (
+                    <div className="Ps1_OldBru">
+                        <div className=""><h2>Nov, 2021</h2></div>
+                        <div className="PsssCover">
+                            <div className="Ps1_mjCvr">
+                                <div className="Ps1_hdrO">
+                                    <div className="PsA Ps1_h1"><span>Goals and Activities</span></div>
+                                    <div className="PsA Ps1_h2"><span>Count</span></div>
+                                    <div className="PsA Ps1_h3"><span>Passed</span></div>
+                                    <div className="PsA Ps1_h4"><span>Failed</span></div>
+                                    <div className="PsA Ps1_h5"><span>Scores</span></div>
+                                </div>
+                                <div className="">
+                                    {zub.a.map(ech => {
+                                        return (
+                                            <div className="P2ech_Cvr" key={ech.title}>
+                                                <div className="P2ech_i Ps1_h1">{ech.title}</div>
+                                                <div className="P2ech_i Ps1_h2">{ech.total}</div>
+                                                <div className="P2ech_i Ps1_h3">{ech.passed}</div>
+                                                <div className="P2ech_i Ps1_h4">{ech.failed}</div>
+                                                <div className="P2ech_i Ps1_h5">{ech.scores}%</div>
+                                            </div>
+                                        )
+                                    })}
+                                </div>
+                            </div>
+                            <div className="Ps2_mjCvr">
+                                <div className="Ps2_mDir">
+                                    {zub.b.map(ech => {
+                                        const avg = showProperMinutes(ech.avg, ech.typ || 'stats')
+                                        return (
+                                            <div className="P2ech_Cvr" key={ech.title}>
+                                                <div className="P2ech_i Ps1_h6">{ech.title}</div>
+                                                <div className="P2ech_i Ps1_h7">{avg}</div>
+                                            </div>
+                                        )
+                                    })}
+                                </div>
+                                <div className="Ps2_mDir">
+                                    {zub.c.map(ech => {
+                                        const tot = showProperMinutes(ech.tot, ech.typ || 'stats')
+                                        return (
+                                            <div className="P2ech_Cvr" key={ech.title}>
+                                                <div className="P2ech_i Ps1_h6">{ech.title}</div>
+                                                <div className="P2ech_i Ps1_h7">{tot}</div>
+                                            </div>
+                                        )
+                                    })}
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div className="Ps2_mjCvr">
-                        <div className="Ps2_mDir">
-                            {archievedGoals.mth && archievedGoals.mth.b.map(ech => {
-                                const avg = showProperMinutes(ech.avg, ech.typ || 'stats')
-                                return (
-                                    <div className="P2ech_Cvr" key={ech.title}>
-                                        <div className="P2ech_i Ps1_h6">{ech.title}</div>
-                                        <div className="P2ech_i Ps1_h7">{avg}</div>
-                                    </div>
-                                )
-                            })}
-                        </div>
-                        <div className="Ps2_mDir">
-                            {archievedGoals.mth && archievedGoals.mth.c.map(ech => {
-                                const tot = showProperMinutes(ech.tot, ech.typ || 'stats')
-                                return (
-                                    <div className="P2ech_Cvr" key={ech.title}>
-                                        <div className="P2ech_i Ps1_h6">{ech.title}</div>
-                                        <div className="P2ech_i Ps1_h7">{tot}</div>
-                                    </div>
-                                )
-                            })}
-                        </div>
-                    </div>
-                </div>
-            </div>
+                )
+            })}
+
         </div>
     );
 }
