@@ -1,6 +1,6 @@
 import {useState, useEffect} from 'react'
 const monthNames = ["Jan", "Feb", "March", "April", "May", "June", "July", "Aug", "Sep", "Oct", "Nov", "Dec"];
-const yearArr = [2021, 2022, 2023, 2024, 2025, 2026, 2027, 2028]
+const yearArr = [2021, 2022, 2023, 2024, 2025, 2026, 2027, 2028, 2029, 2030]
 
 //--start-- helper functions
 // mufasa is a mini redux, that helps us manage the mini state of whatever select or input element that changes
@@ -205,10 +205,7 @@ function App() {
                     <div className="Dw1_mnt_1name">This month, so far!</div>
                     <div className="Dw1_mnt_1select">
                         <select>{monthNames.map((ech, k) => <option value={k+1} key={ech}>{ech}</option>)}</select>
-                        <select>
-                            {(() => { onome = []; for (let i = 2021; i <= (theYear+5); i++) { onome.push(i); } })()}
-                            {onome.map(ech => <option value={ech} key={ech}>{ech}</option>)}
-                        </select>
+                        <select>{yearArr.map(ech => <option value={ech} key={ech}>{ech}</option>)}</select>
                     </div>
                 </div>
                 <ThisMonthGoalsComponent archievedGoals={archievedGoals} />
