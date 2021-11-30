@@ -88,7 +88,7 @@ div { position: relative; overflow: hidden; }
 .Ps1_h3 { width: 13%; }
 .Ps1_h4 { width: 13%; }
 .Ps1_h5 { width: 13%; display: flex; }
-.Ps1_h5 svg { width: 17px; height: 17px; color: #df0e3a; margin: 0 10px; }
+.Ps1_h5 svg { width: 15px; height: 15px; color: #df0e3a; margin: 0 10px; }
 .Ps1_h2 > span { background-color: #f2cd5f; }
 .Ps1_h3 > span { background-color: #73c3ce; }
 .Ps1_h4 > span { background-color: #D9304F; }
