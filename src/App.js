@@ -140,11 +140,12 @@ const ThisMonthGoalsComponent = ({archievedGoals: ag}) => {
 
 
 function App() {
-    const d = new Date();
+    const d = new Date(), mont = d.getMonth() + 1, yay= d.getFullYear();
     const [goals, setGoals] = useState([])
     const [theDay, setTheDay] = useState(d.getDate())
-    const [theMonth, setTheMonth] = useState(d.getMonth() + 1)
-    const [theYear, setTheYear] = useState(d.getFullYear())
+    const [theMonth, setTheMonth] = useState(mont)
+    const [theYear, setTheYear] = useState(yay)
+    const [dShow, setDshow] = useState({'m': mont, 'y': yay})
     const [archievedGoals, setArchievedGoals] = useState({'msg':false})
     let slt_typ, onome = [];
 
@@ -204,8 +205,8 @@ function App() {
                 <div className=" Dw1_mnt_1c">
                     <div className="Dw1_mnt_1name">This month, so far!</div>
                     <div className="Dw1_mnt_1select">
-                        <select>{monthNames.map((ech, k) => <option value={k+1} key={ech}>{ech}</option>)}</select>
-                        <select>{yearArr.map(ech => <option value={ech} key={ech}>{ech}</option>)}</select>
+                        <select value={dShow.m} onChange={(e) => { setDshow({...dShow, 'm':e.target.value}) }}>{monthNames.map((ech, k) => <option value={k+1} key={ech}>{ech}</option>)}</select>
+                        <select value={dShow.y} onChange={(e) => { setDshow({...dShow, 'y':e.target.value}) }}>{yearArr.map(ech => <option value={ech} key={ech}>{ech}</option>)}</select>
                     </div>
                 </div>
                 <ThisMonthGoalsComponent archievedGoals={archievedGoals} />
