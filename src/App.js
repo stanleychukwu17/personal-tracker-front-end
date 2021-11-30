@@ -250,7 +250,7 @@ function App() {
                                     })}
                                 </div>
                                 <div className="ovr_scores">
-                                    Overall score: &nbsp; 95%
+                                    Overall score: &nbsp; &nbsp; 95%
                                 </div>
                             </div>
                             <div className="Ps2_mjCvr">
