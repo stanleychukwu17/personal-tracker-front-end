@@ -217,8 +217,8 @@ function App() {
 
             {archievedGoals.diff_month_stats && archievedGoals.diff_month_stats.map( zub => {
                 return (
-                    <div className="Ps1_OldBru">
-                        <div className=""><h2>Nov, 2021</h2></div>
+                    <div className="Ps1_OldBru" key={zub.month_name}>
+                        <div className=""><h2>{zub.month_name}</h2></div>
                         <div className="PsssCover">
                             <div className="Ps1_mjCvr">
                                 <div className="Ps1_hdrO">
