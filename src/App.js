@@ -84,7 +84,7 @@ const PassedComponents = ({typ, typ_val, typ_hours}) => {
     )
 }
 
-// each of the cards that shows monthly goals
+// each of the cards that shows all the archieved goals and stats for the last 6 months
 const ThisMonthGoalsComponent = ({archievedGoals: ag}) => {
     const {msg, every_day} = ag;
 
