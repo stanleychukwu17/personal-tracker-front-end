@@ -215,7 +215,12 @@ function App() {
                 <ThisMonthGoalsComponent archievedGoals={archievedGoals} />
             </div>
 
-            {archievedGoals.diff_month_stats && archievedGoals.diff_month_stats.map( zub => {
+            {archievedGoals.diff_month_stats && archievedGoals.diff_month_stats.map(zub => {
+                const getSum = (total, num) => total + Math.round(num);
+                const total_scores = zub.scores_arr.reduce(getSum, 0)
+                let avg_scores = (total_scores/zub.scores_arr.length)
+                if (String(avg_scores).indexOf('.') >= 0) { avg_scores = avg_scores.toFixed(1) }
+
                 return (
                     <div className="Ps1_OldBru" key={zub.month_name}>
                         <div className=""><h2>{zub.month_name}</h2></div>
@@ -250,7 +255,7 @@ function App() {
                                     })}
                                 </div>
                                 <div className="ovr_scores">
-                                    Overall score: &nbsp; &nbsp; 95%
+                                    Overall score: &nbsp; &nbsp; {avg_scores}%
                                 </div>
                             </div>
                             <div className="Ps2_mjCvr">
