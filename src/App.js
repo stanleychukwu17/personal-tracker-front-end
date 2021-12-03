@@ -183,12 +183,12 @@ function App() {
                         } else if (ech.typ === 'select_time') {
                             slt_typ = (
                                 <div className="gbBb_4time">
-                                    <input type="number" placeholder="24hour fmt" id={ech.id} onChange={(e) => { setGoals(mufasa(e, goals, 'hour_val')) }} value={ech.hour_val} min="1" max="24"/>
-                                    <input type="number" placeholder="Minute" id={ech.id} onChange={(e) => { setGoals(mufasa(e, goals, 'mins_val')) }} value={ech.mins_val} min="1" max="60"/>
+                                    <input type="number" placeholder="24hour fmt" id={ech.id} onChange={(e) => { setGoals(mufasa(e, goals, 'hour_val')) }} value={ech.hour_val} max="24"/>
+                                    <input type="number" placeholder="Minute" id={ech.id} onChange={(e) => { setGoals(mufasa(e, goals, 'mins_val')) }} value={ech.mins_val} max="60"/>
                                 </div>
                             )
                         } else if (ech.typ === 'input_hours') {
-                            slt_typ = <div className=""><input type="number" placeholder="How many hours" id={ech.id} onChange={(e) => { setGoals(mufasa(e, goals, 'hour_val')) }} value={ech.hour_val} min="1" max="24"/></div>
+                            slt_typ = <div className=""><input type="number" placeholder="How many hours" id={ech.id} onChange={(e) => { setGoals(mufasa(e, goals, 'hour_val')) }} value={ech.hour_val} max="24"/></div>
                         } else { slt_typ = '' }
 
 
