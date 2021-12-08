@@ -93,7 +93,10 @@ div { position: relative; overflow: hidden; }
 .Ps1_h3 > span { background-color: #73c3ce; }
 .Ps1_h4 > span { background-color: #D9304F; }
 .Ps1_h5 > span { background-color: #6ea2dd; }
-.P2ech_Cvr { display: block; padding: 10px 0;}
+.P2ech_Cvr {
+  display: block;
+  padding: 10px 0;
+}
 .P2ech_i {
   float: left;
   position: relative;
