@@ -159,6 +159,7 @@ function App() {
         loadArchievedGoals({'m':theMonth, 'y':theYear, 'callback':setArchievedGoals})
     }, [])
 
+
     return (
         <div className="App">
             <div className="Hm_Hdr1">Hi Stanley!!! tell me it's good today</div>
