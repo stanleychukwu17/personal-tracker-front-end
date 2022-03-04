@@ -4,19 +4,18 @@ const yearArr = [2021, 2022, 2023, 2024, 2025, 2026, 2027, 2028, 2029, 2030]
 
 //--start-- helper functions
 // mufasa is a mini redux, that helps us manage the mini state of whatever select or input element that changes
-const mufasa = (event, gl, wch) => {
+const mufasa = (event, goals, wch) => {
     let selected_id = Number(event.target.id),
         value = event.target.value,
         result = [];
 
-    result = gl.map(ech => {
+    result = goals.map(ech => {
         if (ech.id === selected_id && wch === 'select_yes') { return {...ech, value} }
-        else if (ech.id === selected_id && wch === 'hour_val') { return {...ech, 'hour_val':Number(value)} }
+        else if (ech.id === selected_id && wch === 'hour_val') { console.log(value, Number(value)); return {...ech, 'hour_val':Number(value)} }
         else if (ech.id === selected_id && wch === 'mins_val') { return {...ech, 'mins_val':Number(value)} }
         return ech
     })
 
-    console.log(result)
     return result
 }
 
@@ -27,9 +26,12 @@ const saveTheGoalsNow = (obj) => {
     if (theDay <= 0 || theMonth <= 0 || theYear <= 0) { alert('In-accurate date format received'); return false; }
 
     goals.forEach(ech => {
-        if (ech.typ === 'select_time' && !ech.hour_val) { any_empties = true; return false; }
-        else if (ech.typ === 'input_hours' && !ech.hour_val) { any_empties = true; return false; }
+        if ((ech.typ === 'select_time' || ech.typ === 'input_hours') && typeof ech.hour_val == 'undefined') {
+            any_empties = true;
+            return false;
+        }
     })
+
     if (any_empties) { alert('Please check all of the hours input to confirm that they are as supposed to be'); return false; }
 
     return fetch('http://localhost:4000/save-this-archive/', {
