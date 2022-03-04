@@ -5,16 +5,19 @@ const yearArr = [2021, 2022, 2023, 2024, 2025, 2026, 2027, 2028, 2029, 2030]
 //--start-- helper functions
 // mufasa is a mini redux, that helps us manage the mini state of whatever select or input element that changes
 const mufasa = (event, gl, wch) => {
-    let slt_id = Number(event.target.id), val = event.target.value, obj = [];
+    let selected_id = Number(event.target.id),
+        value = event.target.value,
+        result = [];
 
-    obj = gl.map(ech => {
-        if (ech.id === slt_id && wch === 'select_yes') { return {...ech, val} }
-        else if (ech.id === slt_id && wch === 'hour_val') { return {...ech, 'hour_val':Number(val)} }
-        else if (ech.id === slt_id && wch === 'mins_val') { return {...ech, 'mins_val':Number(val)} }
+    result = gl.map(ech => {
+        if (ech.id === selected_id && wch === 'select_yes') { return {...ech, value} }
+        else if (ech.id === selected_id && wch === 'hour_val') { return {...ech, 'hour_val':Number(value)} }
+        else if (ech.id === selected_id && wch === 'mins_val') { return {...ech, 'mins_val':Number(value)} }
         return ech
     })
 
-    return obj
+    console.log(result)
+    return result
 }
 
 // saves the goals completed for the date received
@@ -41,7 +44,7 @@ const saveTheGoalsNow = (obj) => {
 const loadArchievedGoals = (obj) => {
     const {m, y} = obj
     fetch('http://localhost:4000/get-archieved-goals/?' + new URLSearchParams({m, y})).then(re => re.json()).then(re => {
-        console.log(re);
+        // console.log(re);
         obj.callback(c => { return {...c, ...re}}) })
 }
 //--end--
@@ -60,7 +63,7 @@ const showProperMinutes = (tyme, wch) => {
     return `${ret} ${ext}`;
 }
 
-// simple component that shows if the goal was passes or failed, or if it's just a timer goal
+// simple component that shows if the goal was passed or failed, or if it's just a timer goal
 const PassedComponents = ({typ, typ_val, typ_hours}) => {
     let passed, failed, dtime, txt_write, klass = 'Dw1_pass';
 
