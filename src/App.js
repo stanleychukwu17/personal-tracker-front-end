@@ -9,9 +9,11 @@ const mufasa = (event, goals, wch) => {
         value = event.target.value,
         result = [];
 
+    // console.log({selected_id, value, goals, wch})
+
     result = goals.map(ech => {
-        if (ech.id === selected_id && wch === 'select_yes') { return {...ech, value} }
-        else if (ech.id === selected_id && wch === 'hour_val') { console.log(value, Number(value)); return {...ech, 'hour_val':Number(value)} }
+        if (ech.id === selected_id && wch === 'select_yes') { return {...ech, 'val':value, value} }
+        else if (ech.id === selected_id && wch === 'hour_val') { return {...ech, 'hour_val':Number(value)} }
         else if (ech.id === selected_id && wch === 'mins_val') { return {...ech, 'mins_val':Number(value)} }
         return ech
     })
@@ -51,7 +53,7 @@ const loadArchievedGoals = (obj) => {
 }
 //--end--
 
-//--start-- helper components
+//--start-- helper components - this first one shows the proper date
 const showProperMinutes = (tyme, wch) => {
     let ret = tyme, ext, mins = String(tyme).split('.')
     if (wch === 'select_time' && tyme < 12) { ext = 'am' } else if (wch === 'select_time' && tyme >= 12) { ext = 'pm' }
@@ -65,7 +67,7 @@ const showProperMinutes = (tyme, wch) => {
     return `${ret} ${ext}`;
 }
 
-// simple component that shows if the goal was passed or failed, or if it's just a timer goal
+// Shows if the goal was passed or failed, or if it's just a timer goal
 const PassedComponents = ({typ, typ_val, typ_hours}) => {
     let passed, failed, dtime, txt_write, klass = 'Dw1_pass';
 
